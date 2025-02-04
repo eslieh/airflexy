@@ -4,8 +4,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-a{
-    color: inherit;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 .auth-container {
   display: flex;
@@ -48,6 +49,31 @@ h3.house-location {
   width: 100%;
   transition: all ease 0.8s;
 }
+
+img.user-profile-image {
+  width: 18px;
+  height: 18px;
+  border-radius: 29px;
+}
+
+.wishlist_sel {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-bottom: -49px;
+  z-index: 4;
+  position: relative;
+  margin-top: 13px;
+  margin-right: 14px;
+}
+button.wish_listBtn {
+  background: no-repeat;
+  border: none;
+  color: white;
+  font-size: 27px;
+  cursor: pointer;
+}
+
 .profile-section {
   display: flex;
   align-items: center;
@@ -137,48 +163,46 @@ button.toggle-button {
 /* images */
 
 .header-container.scrolled {
-    background: transparent;
-    backdrop-filter: blur(14px);
-    border-bottom: navajowhite;
-    transition: all ease 0.8s;
+  background: transparent;
+  backdrop-filter: blur(14px);
+  border-bottom: navajowhite;
+  transition: all ease 0.8s;
 }
- 
-.header-container.scrolled 
-span.logo-name {
-    background-image: linear-gradient(97deg, #ffffff 45%, #ffffff 90%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: rgba(0, 0, 0, 0);
-    font-size: 34px;
-    font-weight: 900;
-    transition: all ease 0.8s;
+
+.header-container.scrolled span.logo-name {
+  background-image: linear-gradient(97deg, #ffffff 45%, #ffffff 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0);
+  font-size: 34px;
+  font-weight: 900;
+  transition: all ease 0.8s;
 }
 .houselist-container {
-    padding: 25px;
-    padding-top: 14px;
-    display: flex;
-    flex-wrap: wrap; /* Allows items to wrap onto new lines */
-    gap: 9px;
-    position: absolute;
-    margin-top: 25vh;
-  }
-  
+  padding: 25px;
+  padding-top: 14px;
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto new lines */
+  gap: 9px;
+  position: absolute;
+  margin-top: 25vh;
+}
+
+.houselist-container > div {
+  flex: 1 1 250px; /* Grow and shrink with a base size of 250px */
+  max-width: 100%; /* Prevents items from growing too large */
+}
+
+@media (max-width: 1200px) {
   .houselist-container > div {
-    flex: 1 1 250px; /* Grow and shrink with a base size of 250px */
-    max-width: 100%; /* Prevents items from growing too large */
+    flex: 1 1 200px; /* Smaller base size for medium screens */
   }
-  
-  @media (max-width: 1200px) {
-    .houselist-container > div {
-      flex: 1 1 200px; /* Smaller base size for medium screens */
-    }
+}
+
+@media (max-width: 768px) {
+  .houselist-container > div {
+    flex: 1 1 150px; /* Even smaller base size for mobile screens */
   }
-  
-  @media (max-width: 768px) {
-    .houselist-container > div {
-      flex: 1 1 150px; /* Even smaller base size for mobile screens */
-    }
-  }
-  
+}
 
 .house-card {
   width: 303px;
@@ -206,26 +230,190 @@ p.house-location {
   gap: 11px;
 }
 .copyrightdata.and.terms {
-    display: flex
-;
-    align-items: center;
-    gap: 11px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
 }
 
+.mobile_nav {
+  display: none;
+}
 .footerr {
-    position: fixed;
-    bottom: 0;
-    display: flex
-;
-    justify-content: space-between;
-    width: 100%;
-    padding: 7px;
-    box-shadow: 0 0 15px gray;
-    z-index: 15;
-    background: white;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 7px;
+  box-shadow: 0 0 15px gray;
+  z-index: 15;
+  background: white;
 }
 .socials {
-    display: flex
+  display: flex;
+  gap: 10px;
+}
+
+.action-butons.mobile {
+  display: flex
 ;
-    gap: 10px;
+  justify-content: space-between;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+
+.images-div.desktop {
+  display: flex
+;
+  gap: 8px;
+}
+
+.main-images {
+  width: 70%;
+  height: 100%;
+}
+
+.images-div.desktop {
+  display: flex
+;
+  gap: 8px;
+  padding: 6px;
+  height: 52vh;
+}
+
+img.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.all-images {
+  width: 30%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+img.rest-images {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+}
+.rest-btns {
+  display: flex
+;
+  align-items: center;
+  gap: 8px;
+}
+.image-div.mobile {
+    display: none;
+}
+
+button.actionbtn {
+  padding: 5px;
+  width: 35px;
+  height: 35px;
+  border-radius: 41px;
+  border: none;
+  box-shadow: 0 0 3px gray;
+  background: white;
+  cursor: pointer;
+}
+@media (max-width: 680px) {
+  .logo-container {
+    display: none;
+  }
+  button.actionbtn {
+    padding: 5px;
+    width: 36px;
+    height: 36px;
+    border-radius: 37px;
+    border: none;
+    background: white;
+    color: black;
+    box-shadow: 0 0 4px gray;
+}
+
+.images-div.desktop {
+  display: none;
+}
+
+.image-div.mobile {
+  display: flex
+;
+  height: 39vh;
+}
+
+img.rest-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.rest-btns {
+  display: flex
+;
+  gap: 12px;
+}
+  .action-butons.mobile {
+      display: flex
+  ;
+      justify-content: space-between;
+      padding: 14px;
+  }
+
+  .profile-section {
+    display: none;
+  }
+
+  .mobile_nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 7.5vh;
+    bottom: 0;
+    z-index: 6;
+    background: transparent;
+    backdrop-filter: blur(14px);
+  }
+  span.routelabel {
+    font-size: 12px;
+  }
+  .navigators {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    width: 92%;
+  }
+
+  .Navroutes {
+    display: grid;
+    text-align: center;
+  }
+  .header-container {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    background: white;
+    border-bottom: 1px solid #c3c3c3;
+    align-items: center;
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    transition: all ease 0.8s;
+  }
+  .active{
+    background-image: linear-gradient(97deg, #2196f3 45%, #3f51b5 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(0, 0, 0, 0);
+    font-weight: bold;
+  }
+  .footerr {
+    display: none;
+  }
 }

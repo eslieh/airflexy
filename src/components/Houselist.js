@@ -74,7 +74,8 @@ const Houselist = () => {
       {houses.map((house) => (
         <div className="house-card" key={house.id}>
           {/* Swiper for sliding images */}
-          <Swiper spaceBetween={10} slidesPerView={1}>
+          <div className="wishlist_sel"><button className="wish_listBtn"><i class="fa-regular fa-heart"></i></button></div>
+            <Swiper spaceBetween={10} slidesPerView={1}>
             {house.images.map((image, index) => (
               <SwiperSlide key={index}>
                 <img

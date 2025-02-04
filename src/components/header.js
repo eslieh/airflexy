@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Search from "./search";
 import Profile from "./Profile";
-
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
@@ -23,6 +22,7 @@ const Header = () => {
   }, []);
 
   return (
+    <>
     <div className={`header-container ${scrolled ? "scrolled" : ""}`}>
       <div className="logo-container">
         <span className="logo-name">airflexy</span>
@@ -30,6 +30,7 @@ const Header = () => {
       <Search />
       <Profile />
     </div>
+    </>
   );
 };
 
