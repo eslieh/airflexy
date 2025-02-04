@@ -6,8 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Auth from './pages/auth';
 import Home from './pages';
-import Homes from './pages/home';
+import Property from './pages/Property';
 import Wishlists from './pages/wishlists'
+import Profiles from './pages/profile';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -17,7 +18,8 @@ root.render(
         <Route path='/auth' element={<Auth/>}/>
         <Route path='/' element={<Home/>}/>
         <Route path='/wishlists' element={<Wishlists/>}/>
-        <Route path='/home' element={<Homes/>}/>
+        <Route path='/property/:id' element={<Property/>}/>
+        <Route path='/profile' element={<Profiles/>}/>
       </Routes>
     </Router>
   </React.StrictMode>

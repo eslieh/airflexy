@@ -3,8 +3,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useNavigate } from "react-router-dom";
 
 const Houselist = () => {
+  const Navigate = useNavigate()
   // Sample data (Replace with API data or props)
   const houses = [
     {
@@ -72,7 +74,7 @@ const Houselist = () => {
   return (
     <div className="houselist-container">
       {houses.map((house) => (
-        <div className="house-card" key={house.id}>
+        <div className="house-card" key={house.id} onClick={() => (Navigate(`/property/${house.id}`))}>
           {/* Swiper for sliding images */}
           <div className="wishlist_sel"><button className="wish_listBtn"><i class="fa-regular fa-heart"></i></button></div>
             <Swiper spaceBetween={10} slidesPerView={1}>

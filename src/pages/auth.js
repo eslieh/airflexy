@@ -1,22 +1,35 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const Auth = () => {
-  const [isLogin, setIsLogin] = useState(true); // State to toggle between Login and Signup
+  const [isLogin, setIsLogin] = useState(true);
 
-  // Toggle between Login and Signup
+  // Toggle Login/Signup mode
   const toggleAuthMode = () => {
     setIsLogin((prevState) => !prevState);
   };
 
   return (
     <div className="auth-container">
-      <div className="icon-placeholder">
-        <span className="big-icon">airflex.com</span>
-      </div>
-      <div className="form-container">
+      {/* Logo initially centered, then pushed up by the form */}
+      <motion.div
+        className="icon-placeholder"
+        initial={{ y: "50vh", opacity: 0 }} // Start in center
+        animate={{ y: 0, opacity: 1 }} // Move to top
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
+        <span className="big-icon">airflexy.com</span>
+      </motion.div>
+
+      {/* Form slides down and "pushes" the logo */}
+      <motion.div
+        className="form-container"
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, delay: 1, ease: "easeOut" }}
+      >
         <h2>{isLogin ? "Login" : "Sign Up"}</h2>
         <form>
-          {/* Common Fields */}
           {!isLogin && (
             <div className="form-group">
               <input type="text" id="name" placeholder="Enter your name" />
@@ -33,9 +46,7 @@ const Auth = () => {
           </button>
         </form>
         <p className="toggle-text">
-          {isLogin
-            ? "Don't have an account?"
-            : "Already have an account?"}{" "}
+          {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
           <button
             type="button"
             className="toggle-button"
@@ -44,7 +55,7 @@ const Auth = () => {
             {isLogin ? "Sign Up" : "Login"}
           </button>
         </p>
-      </div>
+      </motion.div>
     </div>
   );
 };

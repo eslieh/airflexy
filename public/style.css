@@ -17,6 +17,17 @@ a {
   align-items: center;
 }
 
+
+.dropdown-menu {
+  position: absolute;
+  background: white;
+  right: 15px;
+  margin-top: 6px;
+  box-shadow: 0 0 2px gray;
+  padding: 14px;
+  border-radius: 13px;
+  width: 13%;
+}
 span.big-icon {
   font-size: 78px;
   font-weight: 800;

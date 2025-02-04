@@ -1,7 +1,9 @@
 import React from "react";
 import Header from "../components/header";
 import { Swiper, SwiperSlide } from "swiper/react";
-const Home = () => {
+import { useNavigate } from "react-router-dom";
+const Property = () => {
+  const navigate = useNavigate();
   const home = {
     name: "Bangalore in Kiambuu",
     id: 4,
@@ -22,7 +24,7 @@ const Home = () => {
       <div className="house_container">
         <div className="action-butons mobile">
           <div className="back-btn">
-            <button className="actionbtn">
+            <button className="actionbtn" onClick={() => navigate(-1)}>
               <i class="fa-solid fa-chevron-left"></i>
             </button>
           </div>
@@ -75,11 +77,49 @@ const Home = () => {
           </div>
             <div className="house-details">
                 <span className="housename-deta">{home.name}</span>
+                <div className="majordet">
+                <i class="fa-solid fa-bed"></i>
+                <span className="clasdet">{home.bedrooms} bedrooms</span>
+              </div>
+              <div className="majordet">
+                <i class="fa-solid fa-bath"></i>
+                <span className="clasdet">{home.bathrooms} bathrooms</span>
+              </div>
+              <div className="house_amenities">
+              <h3>House Amenities</h3>
+              <p className="house-amenities">{home.amenities.join(" • ")}</p>
+              </div>
+              <div className="house_checkout_details">
+                
+              </div>
             </div>
+           
+        </div>
+        <div className="center_float">
+          <div className="center_diver">
+            <div className="choosemode">
+            <a href="tel:+254795739291" className="call" >
+              <div className="callicon" id="phone">
+                <div className="center">
+                  <i class="fa-solid fa-phone"></i><div className="hidden_mess">Call</div>
+                </div>
+              </div>
+            </a>
+            </div>
+            <div className="choosemode">
+            <a href="https://wa.me/+254795739291" className="call" >
+              <div className="callicon" id="wame">
+                <div className="center">
+                <i class="fa-brands fa-whatsapp"></i><div className="hidden_mess">WhatApp</div>
+                </div>
+              </div>
+            </a>
+            </div>
+          </div>
         </div>
       </div>
     </>
   );
 };
 
-export default Home;
+export default Property;
