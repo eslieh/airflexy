@@ -1,24 +1,43 @@
-import React from "react";
-import Header from "../components/header";
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 const Property = () => {
+  const { id } = useParams(); // Get property ID from URL
   const navigate = useNavigate();
-  const home = {
-    name: "Bangalore in Kiambuu",
-    id: 4,
-    location: "Kiambu, Kenya",
-    price: "KSh 25,000 per month",
-    bedrooms: 1,
-    bathrooms: 1,
-    amenities: ["Security", "Close to bus stop"],
-    images: [
-      "https://i.pinimg.com/736x/0f/b9/34/0fb934b6ac06c22997901ff67b1a6a48.jpg",
-      "https://i.pinimg.com/736x/47/9a/ba/479aba784a0d5eb72beca031fe4288c3.jpg",
-      "https://i.pinimg.com/736x/47/9a/ba/479aba784a0d5eb72beca031fe4288c3.jpg",
-      "https://i.pinimg.com/736x/47/9a/ba/479aba784a0d5eb72beca031fe4288c3.jpg",
-    ],
-  };
+  const [home, setHome] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://airflexy.onrender.com/api/v1/properties?apikey=$2y$10$dwDUtaq8ab05wVjirxTb5.um3MXAXx5C7/WdYj5s7qKK6UTkpz5ya`
+      )
+      .then((response) => {
+        // Extract the specific property
+        const foundProperty = response.data.data.find(
+          (property) => property.property_id === parseInt(id)
+        );
+  
+        if (foundProperty) {
+          setHome(foundProperty);
+        } else {
+          setError("Property not found.");
+        }
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching property:", error);
+        setError("Failed to load property details");
+        setLoading(false);
+      });
+  }, [id]);
+  
+  if (loading) return <p>Loading property details...</p>;
+  if (error) return <p>{error}</p>;
+  if (!home) return <p>No property found.</p>;
   return (
     <>
       <div className="house_container">
@@ -40,7 +59,7 @@ const Property = () => {
         <div className="house-main-dettails">
           <div className="images-div desktop">
             <div className="main-images">
-              <img className="main-image" src={home.images[1]}></img>
+              <img className="main-image" src={home.images[0]? home.images[0]: home.images[0]}></img>
             </div>
             {
               <div className="all-images">
@@ -76,7 +95,7 @@ const Property = () => {
             }
           </div>
             <div className="house-details">
-                <span className="housename-deta">{home.name}</span>
+                <span className="housename-deta">{home.title}</span>
                 <div className="majordet">
                 <i class="fa-solid fa-bed"></i>
                 <span className="clasdet">{home.bedrooms} bedrooms</span>
@@ -87,7 +106,8 @@ const Property = () => {
               </div>
               <div className="house_amenities">
               <h3>House Amenities</h3>
-              <p className="house-amenities">{home.amenities.join(" • ")}</p>
+              <p className="house-amenities">
+              {home.amenities ? home.amenities.join(" • ") : "No amenities listed"}</p>
               </div>
               <div className="house_checkout_details">
                 
