@@ -461,6 +461,164 @@ button.actionbtn {
   background: white;
   cursor: pointer;
 }
+/* General styles */
+
+.profile-containers {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  cursor: pointer;
+}
+.center_profile {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -5;
+  display: grid
+;
+  place-content: center;
+}
+/* Profile card */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.profile-role {
+  color: gray;
+}
+
+.profile-years {
+  font-size: 14px;
+  color: #777;
+}
+
+/* Confirmed Information */
+.confirmed-info {
+  background: #f8f8f8;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 15px 0;
+  text-align: left;
+}
+
+.confirmed-info h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.confirmed-info p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Edit button */
+.edit-button {
+  margin: 15px 0;
+  padding: 10px 15px;
+  border: none;
+  background: #007bff;
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background: #0056b3;
+}
+
+/* Profile details */
+.profile-details {
+  text-align: left;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Modal buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.cancel-button {
+  background: gray;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  background: darkgray;
+}
+
+.save-button {
+  background: green;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background: darkgreen;
+}
+
+
 @media (max-width: 680px) {
   .logo-container {
     display: none;

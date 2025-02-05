@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Header from "../components/header";
 import Houselist from "../components/Houselist";
+import Header from "../components/header";
 import Footer from "../components/Footer";
 import Mobilenav from "../components/Mobilenav";
 import axios from "axios";
